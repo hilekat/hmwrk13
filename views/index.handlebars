@@ -1,4 +1,4 @@
-<div id ="headerSection">
+<div id="headerSection">
   <h2>BurgerZ</h2>
 </div>
 
@@ -8,9 +8,14 @@
   <div class="leftMiddle">
     <div class="uneaten center">
       {{#each burger}}
-        {{#unless devoured}}
-          {{> burgers/burgerBlock devoured=1}}
-        {{/unless}}
+      {{#unless devoured}}
+      <li>
+        {{burger_name}}
+        <button class="burgerBlock" data-id="{{id}}" data-eaten="{{devoured}}">
+          {{#if devoured}}Feed ME!! {{else}} MORE! {{/if}}
+        </button>
+      </li>
+      {{/unless}}
       {{/each}}
     </div>
   </div>
@@ -27,9 +32,14 @@
   <div class="rightMiddle">
     <div class="eaten center">
       {{#each burger}}
-        {{#if devoured}}
-          {{> burgers/burgerBlock devoured=0}}
-        {{/if}}
+      {{#if devoured}}
+      <li>
+        {{burger_name}}
+        <button class="burgerBlock" data-id="{{id}}" data-eaten="{{devoured}}">
+          {{#if devoured}}Feed ME!! {{else}} MORE! {{/if}}
+        </button>
+      </li>
+      {{/if}}
       {{/each}}
     </div>
   </div>
@@ -37,6 +47,6 @@
 </div>
 
 
-<div id ="footerSection">
+<div id="footerSection">
   <p>hilekat</p>
 </div>
